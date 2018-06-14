@@ -1,0 +1,21 @@
+[
+  {
+    "format" : "Status update for {0}",
+    "key" : "user",
+    "el" : "h2"
+  },
+  {
+    "table" : {
+      "rows" : [
+        "doing",
+        "done",
+        "blockers"
+      ],
+      "headers" : [
+        "DOING",
+        "DONE",
+        "BLOCKING"
+      ]
+    }
+  }
+]

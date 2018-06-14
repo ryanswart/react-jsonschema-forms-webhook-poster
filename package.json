@@ -1,0 +1,22 @@
+{
+  "name": "react-jsonschema-forms-webhook-poster",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dotenv-json": "^1.0.0",
+    "json2md": "^1.6.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-jsonschema-form": "^1.0.3",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "sh ./set-vars.sh react-scripts start",
+    "build": "sh ./set-vars.sh react-scripts build",
+    "test": "sh ./set-vars.sh react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "jshintConfig": {
+    "esversion": 6
+  }
+}

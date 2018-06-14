@@ -1,0 +1,37 @@
+{
+  "required" : [
+    "user"
+  ],
+  "title" : "Standup Tracking Form",
+  "type" : "object",
+  "properties" : {
+    "doing" : {
+      "type" : "array",
+      "title" : "Doing",
+      "items" : {
+        "type" : "string"
+      },
+      "default" : []
+    },
+    "done" : {
+      "title" : "Done",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      },
+      "default" : []
+    },
+    "user" : {
+      "title" : "Name",
+      "type" : "string"
+    },
+    "blockers" : {
+      "default" : [],
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array",
+      "title" : "Blockers"
+    }
+  }
+}
