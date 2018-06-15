@@ -5,6 +5,10 @@
   "title" : "Standup Tracking Form",
   "type" : "object",
   "properties" : {
+    "user" : {
+      "title" : "Name",
+      "type" : "string"
+    },
     "doing" : {
       "type" : "array",
       "title" : "Doing",
@@ -20,10 +24,6 @@
         "type" : "string"
       },
       "default" : []
-    },
-    "user" : {
-      "title" : "Name",
-      "type" : "string"
     },
     "blockers" : {
       "default" : [],
