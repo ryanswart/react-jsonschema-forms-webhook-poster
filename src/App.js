@@ -60,7 +60,11 @@ function postData({formData: form}) {
   fetch(
     REACT_APP_WEBHOOK_HOST + REACT_APP_WEBHOOK_URL, {
     body: JSON.stringify(data),
-    method: "POST"
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    mode: 'no-cors'
   });
 }
 
