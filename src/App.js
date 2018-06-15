@@ -65,7 +65,7 @@ function postData({formData: form}) {
     },
     method: 'POST',
     mode: 'no-cors'
-  });
+    }).then(r => window.confirm('Form has been submitted - Submit a new report?') && window.location.reload());
 }
 
 const { log } = console;
