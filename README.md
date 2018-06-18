@@ -18,6 +18,7 @@ REACT_APP_WEBHOOK_HOST= optional - used to determine the host to forward request
 REACT_APP_CHANNEL= mattermost_forms_channel
 REACT_APP_USERNAME= mattermost_forms_bot
 REACT_APP_SCHEMA= json schema defining form inputs. See docs for react-jsonschema-form for examples
+REACT_APP_UI_SCHEMA= json-schema-forms ui definition - see details same as above
 REACT_APP_MARKDOWN_MAPPING= array of json objects, that turns a form data key into a json2md markup node - see json2md docs for examples
 ```
 

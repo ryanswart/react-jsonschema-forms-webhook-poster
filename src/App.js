@@ -4,9 +4,11 @@ import './App.css';
 
 import json2md from 'json2md';
 import Form from "react-jsonschema-form";
+import queryString from "query-string";
 
 const {
   REACT_APP_SCHEMA,
+  REACT_APP_UI_SCHEMA,
   REACT_APP_WEBHOOK_URL,
   REACT_APP_WEBHOOK_HOST= '',
   REACT_APP_MARKDOWN_MAPPING,
@@ -15,6 +17,7 @@ const {
 } = process.env;
 
 const schema = JSON.parse(REACT_APP_SCHEMA);
+const uiSchema = JSON.parse(REACT_APP_UI_SCHEMA);
 const mdMap = JSON.parse(REACT_APP_MARKDOWN_MAPPING);
 
 if (!String.prototype.format) {
@@ -68,6 +71,9 @@ function postData({formData: form}) {
     }).then(r => window.confirm('Form has been submitted - Submit a new report?') && window.location.reload());
 }
 
+const queryData = queryString.parse(window.location.search);
+
+
 const { log } = console;
 
 class App extends Component {
@@ -75,6 +81,9 @@ class App extends Component {
     return (
       <div className="App container">
         <Form schema={schema}
+              liveValidate
+              formData={queryData}
+              uiSchema={uiSchema}
               onChange={log("changed")}
               onSubmit={postData}
               onError={log("errors")}
