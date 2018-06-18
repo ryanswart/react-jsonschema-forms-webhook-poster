@@ -8,9 +8,12 @@ import queryString from "query-string";
 
 const {
   REACT_APP_SCHEMA,
+  REACT_APP_INCLUDE_DATA,
   REACT_APP_UI_SCHEMA,
   REACT_APP_WEBHOOK_URL,
   REACT_APP_WEBHOOK_HOST= '',
+  REACT_APP_DATA_ENDPOINT,
+  REACT_APP_DATA_ENDPOINT_HOST= '',
   REACT_APP_MARKDOWN_MAPPING,
   REACT_APP_CHANNEL,
   REACT_APP_USERNAME
@@ -51,14 +54,27 @@ const formatData  = (form) => ({key, el, format, ...spec}) => {
   return spec;
 };
 
-function postData({formData: form}) {
+async function postData({formData: form}) {
   const mappedForm = mdMap.map(formatData(form));
 
   const data = {
+    form: REACT_APP_INCLUDE_DATA ? form : undefined,
     channel: REACT_APP_CHANNEL,
     username: REACT_APP_USERNAME,
     text: json2md(mappedForm)
   };
+
+  if(REACT_APP_DATA_ENDPOINT) {
+    await fetch(
+      REACT_APP_DATA_ENDPOINT_HOST + REACT_APP_DATA_ENDPOINT, {
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        mode: 'no-cors'
+      });
+  }
 
   fetch(
     REACT_APP_WEBHOOK_HOST + REACT_APP_WEBHOOK_URL, {
