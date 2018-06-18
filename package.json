@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "json2md": "^1.6.1",
-    "query-string": "^6.1.0",
+    "query-string": "^5.x.x",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-jsonschema-form": "^1.0.3",
